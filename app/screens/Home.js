@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { View, Text, Button, ImageBackground, StyleSheet } from "react-native";
-import background from "../../assets/background1.png";
+import { View, Text, Button, StyleSheet, Image } from "react-native";
 import database from "@react-native-firebase/database";
 
 import { db, ref, onValue } from "../../FirebaseConfig";
+
+const backgroundColor = "#dde5b6";
 
 function HomeScreen({ navigation }) {
   const [temp, setTemp] = useState(0);
@@ -20,8 +21,15 @@ function HomeScreen({ navigation }) {
   }, [db]);
 
   return (
-    <ImageBackground source={background} style={styles.container}>
+    <View style={[styles.container, { backgroundColor }]}>
+      <Image
+        source={require("../../assets/image.png")}
+        style={{ width: 350, height: 300 }}
+      />
       <View style={styles.tempWrapper}>
+        <Text style={{ textAlign: "center", marginLeft: 20, fontSize: 28 }}>
+          Temprature
+        </Text>
         <Text style={styles.text}>{temp}</Text>
       </View>
       <View style={styles.data}>
@@ -38,7 +46,7 @@ function HomeScreen({ navigation }) {
         </View>
       </View>
       <Button title="Log Out" onPress={() => navigation.navigate("Login")} />
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -47,8 +55,8 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    resizeMode: "cover",
     justifyContent: "center",
+    alignItems: "center",
   },
   tempWrapper: {
     flex: 1,
@@ -60,6 +68,7 @@ const styles = StyleSheet.create({
     textAlign: "right",
     color: "white",
     paddingRight: 35,
+    marginLeft: 50,
   },
   data: {
     flex: 1,
@@ -96,13 +105,11 @@ const styles = StyleSheet.create({
     fontWeight: "200",
     color: "white",
     textAlign: "center",
-    fontFamily: "Helvetica",
   },
   title: {
     fontSize: 12,
     fontWeight: "bold",
     color: "white",
     textAlign: "center",
-    fontFamily: "Helvetica",
   },
 });
