@@ -5,14 +5,14 @@ import { getDatabase, ref, onValue } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA3p4eoYtHQ2F2mtvz_ozkUyntdXXo1yrQ",
-  authDomain: "farmingauth.firebaseapp.com",
-  projectId: "farmingauth",
-  storageBucket: "farmingauth.appspot.com",
-  messagingSenderId: "999103747735",
-  appId: "1:999103747735:web:a3b3581ba6073f6e6ffbd2",
+  apiKey: "AIzaSyAiBXy7FNYwjo6noIloQCrG2vTLLKVg_M0",
+  authDomain: "farmingauth-77443.firebaseapp.com",
+  databaseURL: "https://farmingauth-77443-default-rtdb.firebaseio.com",
+  projectId: "farmingauth-77443",
+  storageBucket: "farmingauth-77443.appspot.com",
+  messagingSenderId: "1045488013150",
+  appId: "1:1045488013150:web:769bff5254837a325e49cf",
 };
-
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const FIREBASE_AUTH = getAuth(app);

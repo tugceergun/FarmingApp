@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { View, Text, Button, StyleSheet, Image } from "react-native";
-import database from "@react-native-firebase/database";
 
 import { db, ref, onValue } from "../../FirebaseConfig";
 
 const backgroundColor = "#dde5b6";
 
 function HomeScreen({ navigation }) {
-  const [temp, setTemp] = useState(0);
-  const [humidity, setHumidity] = useState(0);
-  const [pressure, setPressure] = useState(0);
+  const [temp, setTemp] = useState(23);
+  const [humidity, setHumidity] = useState(10);
+  const [pressure, setPressure] = useState(20);
 
   useEffect(() => {
     const data = ref(db);
@@ -28,7 +27,7 @@ function HomeScreen({ navigation }) {
       />
       <View style={styles.tempWrapper}>
         <Text style={{ textAlign: "center", marginLeft: 20, fontSize: 28 }}>
-          Temprature
+          Temperature
         </Text>
         <Text style={styles.text}>{temp}</Text>
       </View>
