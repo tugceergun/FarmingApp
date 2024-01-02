@@ -13,8 +13,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 
-
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,9 +24,8 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
-      console.log(response);
       alert("Login Success");
-      navigation.navigate("Home")
+      navigation.navigate("Home");
     } catch (error) {
       console.log(error);
       //alert(error.message);

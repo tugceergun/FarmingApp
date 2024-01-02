@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { View, Text, Button, StyleSheet, Image } from "react-native";
+// HomeScreen.jsx
 
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { db, ref, onValue } from "../../FirebaseConfig";
 
 const backgroundColor = "#dde5b6";
@@ -44,12 +46,23 @@ function HomeScreen({ navigation }) {
           </View>
         </View>
       </View>
-      <Button title="Log Out" onPress={() => navigation.navigate("Login")} />
+      <View style={styles.buttonWrapper}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Login")}
+        >
+          <Text style={styles.buttonText}>Log Out</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Crops")}
+        >
+          <Text style={styles.buttonText}>Crops</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
-
-export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -60,14 +73,16 @@ const styles = StyleSheet.create({
   tempWrapper: {
     flex: 1,
     justifyContent: "center",
+    marginBottom: 0,
   },
   text: {
-    fontSize: 150,
+    fontSize: 100,
     fontWeight: "100",
     textAlign: "right",
     color: "white",
     paddingRight: 35,
     marginLeft: 50,
+    marginBottom: 0,
   },
   data: {
     flex: 1,
@@ -81,13 +96,14 @@ const styles = StyleSheet.create({
   dataWrapper: {
     backgroundColor: "rgba(255, 255, 255, 0.2)",
     flexDirection: "row",
-    height: "20%",
+    height: "30%",
     justifyContent: "center",
     alignItems: "center",
     width: "80%",
     borderRadius: 20,
     borderWidth: 1,
     borderColor: "white",
+    marginBottom: 50,
   },
   humid: {
     flex: 1,
@@ -111,4 +127,25 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
   },
+  button: {
+    backgroundColor: "#6a994e",
+    padding: 10,
+    borderRadius: 8,
+    alignItems: "center",
+    margin: 10,
+  },
+  buttonText: {
+    color: "#ffffff",
+    fontSize: 18,
+  },
+  buttonWrapper: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    marginBottom: 30,
+    color: "white",
+  },
 });
+
+export default HomeScreen;
