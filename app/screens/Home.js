@@ -59,6 +59,12 @@ function HomeScreen({ navigation }) {
         >
           <Text style={styles.buttonText}>Crops</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Storage")}
+        >
+          <Text style={styles.buttonText}>Storage</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
