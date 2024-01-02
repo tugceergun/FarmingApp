@@ -7,13 +7,14 @@ import Login from "./app/screens/Login";
 import HomeScreen from "./app/screens/Home";
 import CropScreen from "./app/screens/Crops";
 import StorageScreen from "./app/screens/Storage";
+import ProfileScreen from "./app/screens/Profile";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           name="Login"
           component={Login}
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Crops" component={CropScreen} />
         <Stack.Screen name="Storage" component={StorageScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

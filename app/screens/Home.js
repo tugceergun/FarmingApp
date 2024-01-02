@@ -47,12 +47,12 @@ function HomeScreen({ navigation }) {
         </View>
       </View>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Login")}
         >
           <Text style={styles.buttonText}>Log Out</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Crops")}
@@ -60,10 +60,16 @@ function HomeScreen({ navigation }) {
           <Text style={styles.buttonText}>Crops</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.button}
+          style={styles.buttonStorage}
           onPress={() => navigation.navigate("Storage")}
         >
           <Text style={styles.buttonText}>Storage</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonProfile}
+          onPress={() => navigation.navigate("Profile")}
+        >
+          <Text style={styles.buttonText}>Profile</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -134,7 +140,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    backgroundColor: "#6a994e",
+    backgroundColor: "#606c38",
     padding: 10,
     borderRadius: 8,
     alignItems: "center",
@@ -142,7 +148,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#ffffff",
-    fontSize: 18,
+    fontSize: 14,
   },
   buttonWrapper: {
     flexDirection: "row",
@@ -151,6 +157,20 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 30,
     color: "white",
+  },
+  buttonStorage: {
+    backgroundColor: "#606c38",
+    padding: 10,
+    borderRadius: 8,
+    alignItems: "center",
+    margin: 10,
+  },
+  buttonProfile: {
+    backgroundColor: "#606c38",
+    padding: 10,
+    borderRadius: 8,
+    alignItems: "center",
+    margin: 10,
   },
 });
 
