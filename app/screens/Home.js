@@ -8,14 +8,14 @@ import { db, ref, onValue } from "../../FirebaseConfig";
 const backgroundColor = "#dde5b6";
 
 function HomeScreen({ navigation }) {
-  const [temp, setTemp] = useState(23);
+  const [temperature, setTemperature] = useState(23);
   const [humidity, setHumidity] = useState(10);
   const [pressure, setPressure] = useState(20);
 
   useEffect(() => {
     const data = ref(db);
     onValue(data, (snapshot) => {
-      setTemp(snapshot.val().temp);
+      setTemperature(snapshot.val().temperature);
       setHumidity(snapshot.val().humid);
       setPressure(snapshot.val().pressure);
     });
@@ -31,7 +31,7 @@ function HomeScreen({ navigation }) {
         <Text style={{ textAlign: "center", marginLeft: 20, fontSize: 28 }}>
           Temperature
         </Text>
-        <Text style={styles.text}>{temp}</Text>
+        <Text style={styles.text}>{temperature}</Text>
       </View>
       <View style={styles.data}>
         <View style={styles.spacer}></View>
