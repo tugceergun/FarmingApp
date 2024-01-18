@@ -10,14 +10,12 @@ const backgroundColor = "#dde5b6";
 function HomeScreen({ navigation }) {
   const [temperature, setTemperature] = useState(23);
   const [humidity, setHumidity] = useState(10);
-  const [pressure, setPressure] = useState(20);
 
   useEffect(() => {
     const data = ref(db);
     onValue(data, (snapshot) => {
-      setTemperature(snapshot.val().temperature);
-      setHumidity(snapshot.val().humid);
-      setPressure(snapshot.val().pressure);
+      setTemperature(snapshot.val().test.temperature);
+      setHumidity(snapshot.val().test.humidity);
     });
   }, [db]);
 
@@ -39,10 +37,6 @@ function HomeScreen({ navigation }) {
           <View style={styles.humid}>
             <Text styles={styles.dataText}>{humidity}%</Text>
             <Text style={styles.title}>Humidity</Text>
-          </View>
-          <View style={styles.pressure}>
-            <Text styles={styles.dataText}>{pressure}</Text>
-            <Text style={styles.title}>Pressure</Text>
           </View>
         </View>
       </View>
@@ -70,6 +64,12 @@ function HomeScreen({ navigation }) {
           onPress={() => navigation.navigate("Profile")}
         >
           <Text style={styles.buttonText}>Profile</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonProfile}
+          onPress={() => navigation.navigate("Analytics")}
+        >
+          <Text style={styles.buttonText}>Analytics</Text>
         </TouchableOpacity>
       </View>
     </View>
